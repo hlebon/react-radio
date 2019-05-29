@@ -45,7 +45,12 @@ function useRadioContext() {
   };
 }
 
-function Button({ children, value: inputValue }) {
+function Button({
+  children,
+  value: inputValue,
+  activeColor = "#3a3a3a",
+  inactiveColor = "#3a3a3a"
+}) {
   const { value, onChange } = useRadioContext();
   const checked = value === inputValue;
   return (
@@ -61,8 +66,8 @@ function Button({ children, value: inputValue }) {
       >
         <SVGRadio
           active={checked}
-          activeColor={"red"}
-          inactiveColor={"green"}
+          activeColor={activeColor}
+          inactiveColor={inactiveColor}
         />
         <input
           type="radio"
