@@ -1,4 +1,5 @@
 import React from "react";
+import SVGRadio from "./SVGRadio";
 
 const RadioContext = React.createContext();
 
@@ -44,23 +45,40 @@ function useRadioContext() {
   };
 }
 
-function Button({ children, value: inputValue, active: ActiveComponent }) {
+function Button({ children, value: inputValue }) {
   const { value, onChange } = useRadioContext();
   const checked = value === inputValue;
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", padding: "0 1rem" }}
-    >
-      <div>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0.5rem"
+        }}
+      >
+        <SVGRadio
+          active={checked}
+          activeColor={"red"}
+          inactiveColor={"green"}
+        />
         <input
           type="radio"
           value={inputValue}
           checked={checked}
           onChange={onChange}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            margin: "auto",
+            opacity: "0"
+          }}
         />
-        {children}
       </div>
-      {checked && ActiveComponent ? React.cloneElement(ActiveComponent) : null}
+      {children}
     </div>
   );
 }
