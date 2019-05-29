@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Radio from "./radio";
-import "./styles.css";
 
 function App() {
-  const [state, setState] = React.useState("");
+  const [state, setState] = React.useState("option-2");
   return (
     <div>
       <h1>You have select {state}</h1>
@@ -14,7 +13,9 @@ function App() {
         onChange={value => setState(value)}
       >
         <Radio.Button value="option-1">Option 1</Radio.Button>
-        <Radio.Button value="option-2">Option 2</Radio.Button>
+        <Radio.Button value="option-2" activeColor={"yellow"}>
+          Option 2
+        </Radio.Button>
       </Radio>
     </div>
   );
