@@ -7,16 +7,16 @@ function SVGRadio({ active, activeColor, inactiveColor }) {
         cx="10"
         cy="10"
         r="7"
-        stroke={activeColor ? activeColor : inactiveColor}
+        stroke={active ? activeColor : inactiveColor}
         strokeWidth="2"
-        fill={"white"}
+        fill={"#ffffff"}
       />
       {active ? (
         <circle
           cx="10"
           cy="10"
           r="4"
-          fill={activeColor ? activeColor : inactiveColor}
+          fill={active ? activeColor : inactiveColor}
         />
       ) : null}
     </svg>
